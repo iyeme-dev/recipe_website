@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from recipes import views as recipes_views
+from django.views.generic import RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recipes/', recipes_views.my_recipes, name="recipes"), # the app urls are loaded as the main urls
+
+    # optional: redirect "/" → "/recipes/"
+    path('', RedirectView.as_view(url='/recipes/', permanent=False)),
+
+    # all recipes URLs live in the app
     path('recipes/', include('recipes.urls')),
 ]
+
