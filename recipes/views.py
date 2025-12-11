@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 def my_recipes(request):
-    return render(request, 'recipes/my_recipes.html') 
+    return HttpResponse("Hello from recipes!")
