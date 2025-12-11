@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
 def my_recipes(request):
-    return HttpResponse("Hello, Welcome to recipe sharing site!")
+    return render(request, 'recipes/my_recipes.html') 
